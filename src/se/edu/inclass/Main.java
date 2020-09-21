@@ -54,4 +54,12 @@ public class Main {
                 .sorted((a,b) -> a.getDescription().toLowerCase().compareTo(b.getDescription().toLowerCase()))
                 .forEach(System.out::println);
     }
+
+    public static ArrayList<Task> filterByString (ArrayList<Task> tasksData, String filter){
+        ArrayList<Task> filteredTaskList = (ArrayList<Task>) tasksData.stream()
+                .filter((s) -> s.getDescription().contains(filter))
+                .collect(toList());
+
+        return filteredTaskList;
+    }
 }
